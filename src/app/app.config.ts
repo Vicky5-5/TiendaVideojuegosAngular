@@ -7,7 +7,7 @@ import { routes } from './app.routes';
 export const appConfig: ApplicationConfig = {
   providers: [
     
-    importProvidersFrom(HttpClientModule),
-    provideRouter(routes,withComponentInputBinding())
+    provideHttpClient(withFetch()),
+    provideRouter(routes, withComponentInputBinding())
   ]
 };
