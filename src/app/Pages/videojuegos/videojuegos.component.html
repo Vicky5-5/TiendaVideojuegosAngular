@@ -1,1 +1,32 @@
-<p>videojuegos works!</p>
+<div class="mat-elevation-z2" style="width: 30%;padding: 30px; margin:50px auto; display: flex;justify-content: center;">
+  <form [formGroup]="formVideojuego">
+    <div class="flex">
+      <mat-form-field>
+        <mat-label>Título</mat-label>
+        <input matInput formControlName="titulo" placeholder="Título">
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <mat-form-field>
+        <mat-label>Género</mat-label>
+        <input matInput formControlName="genero" placeholder="Género">
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <mat-form-field>
+        <mat-label>Plataforma</mat-label>
+        <input matInput formControlName="plataforma" placeholder="Plataforma">
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <mat-form-field>
+        <mat-label>PEGI</mat-label>
+        <input matInput type="number" formControlName="pegi" placeholder="PEGI">
+      </mat-form-field>
+    </div>
+    <div class="flex">
+      <button mat-flat-button color="primary" (click)="guardar()">Guardar</button>
+      <button mat-flat-button color="warn" (click)="volver()" style="margin-left: 8px;">Volver</button>
+    </div>
+  </form>
+</div>

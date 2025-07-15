@@ -6,8 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { TiendaService } from '../../services/tienda.service';
 import { Videojuegos } from '../../Models/Videojuegos';
 import { Router } from '@angular/router';
-import { catchError } from 'rxjs/internal/operators/catchError';
-import { of } from 'rxjs/internal/observable/of';
+
 
 @Component({
   selector: 'app-inicio',
@@ -19,7 +18,7 @@ import { of } from 'rxjs/internal/observable/of';
 export class InicioComponent {
   private videojuegosServicio = inject(TiendaService);
   public listaVideojuegos: Videojuegos[] = [];
-  public displayedColumns: string[] = ['Titulo', 'Genero', 'Plataforma', 'PEGI','Accion'];
+  public displayedColumns: string[] = ['titulo', 'genero', 'plataforma', 'pegi', 'accion'];
 
   constructor(private router: Router) {
     this.obtenerVideojuegos(); // Carga inicial

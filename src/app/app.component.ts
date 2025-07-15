@@ -8,9 +8,10 @@ import { InicioComponent } from "./Pages/inicio/inicio.component";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterModule, InicioComponent],
+  imports: [RouterModule],
   template: `
-<app-inicio></app-inicio>
+     <h1>Test Hola Mundo</h1>
+    <router-outlet></router-outlet>
   `
 })
 export class AppComponent implements OnInit {
@@ -26,3 +27,4 @@ export class AppComponent implements OnInit {
     });
   }
 }
+

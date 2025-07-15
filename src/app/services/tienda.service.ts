@@ -20,7 +20,9 @@ obtener(id:number){
   return this.http.get<Videojuegos[]>(`${this.apiUrl}${id}`);
 }
   listar() {
-    return this.http.get<Videojuegos[]>(this.apiUrl) }
+  return this.http.get('/api/videojuegos'); // ✅ sin dominio, usa proxy
+}
+
 
   crear(juego: Videojuegos) {
     return this.http.post<ResponseAPI>(this.apiUrl, juego);
