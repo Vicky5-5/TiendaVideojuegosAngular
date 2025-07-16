@@ -1,9 +1,9 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TiendaService } from '../../services/tienda.service';
-import { Router } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { Videojuegos } from '../../Models/Videojuegos';
 
@@ -15,11 +15,11 @@ import { Videojuegos } from '../../Models/Videojuegos';
   styleUrl: './videojuegos.component.css'
 })
 export class VideojuegosComponent implements OnInit {
-
-  @Input('id') idVideojuego!: number;
+  public idVideojuego: number = 0;
 
   private videojuegoServicio = inject(TiendaService);
   private formBuild = inject(FormBuilder);
+  private route = inject(ActivatedRoute);
   private router = inject(Router);
 
   public formVideojuego: FormGroup = this.formBuild.group({
@@ -30,20 +30,20 @@ export class VideojuegosComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    if (this.idVideojuego != 0) {
+    const param = this.route.snapshot.paramMap.get('id');
+    this.idVideojuego = param ? Number(param) : 0;
+
+    if (this.idVideojuego > 0) {
       this.videojuegoServicio.obtener(this.idVideojuego).subscribe({
         next: (data) => {
-
-        this.formVideojuego.patchValue({
-        titulo: data.titulo,
-        genero: data.genero,
-        plataforma: data.plataforma,
-        pegi: data.pegi
-        });
+          this.formVideojuego.patchValue({
+            titulo: data.titulo,
+            genero: data.genero,
+            plataforma: data.plataforma,
+            pegi: data.pegi
+          });
         },
-        error: (err) => {
-          console.log(err.message);
-        }
+        error: (err) => console.log('Error al cargar:', err.message)
       });
     }
   }
@@ -66,9 +66,7 @@ export class VideojuegosComponent implements OnInit {
             alert('Error al crear');
           }
         },
-        error: (err) => {
-          console.log(err.message);
-        }
+        error: (err) => console.log('Error al crear:', err.message)
       });
     } else {
       this.videojuegoServicio.editar(objeto).subscribe({
@@ -79,9 +77,7 @@ export class VideojuegosComponent implements OnInit {
             alert('Error al editar');
           }
         },
-        error: (err) => {
-          console.log(err.message);
-        }
+        error: (err) => console.log('Error al editar:', err.message)
       });
     }
   }
