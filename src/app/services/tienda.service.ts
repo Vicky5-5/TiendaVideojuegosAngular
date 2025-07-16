@@ -11,7 +11,7 @@ import { ResponseAPI } from '../Models/ResponseAPI';
 export class TiendaService {
   private http = inject(HttpClient); //inyectamos el servicio del cliente
 
-  private apiUrl:string =appsettings.apiUrl + "/videojuegos"
+  private apiUrl:string =appsettings.apiUrl + "/videojuegos/"
 
 constructor(){
   this.listar();
