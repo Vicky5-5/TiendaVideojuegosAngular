@@ -17,7 +17,7 @@ constructor(){
   this.listar();
 }
 obtener(id:number){
-  return this.http.get<Videojuegos[]>(`${this.apiUrl}${id}`);
+  return this.http.get<Videojuegos>(`${this.apiUrl}${id}`);
 }
   listar() {
   return this.http.get('/api/videojuegos'); // ✅ sin dominio, usa proxy
