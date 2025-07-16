@@ -33,13 +33,12 @@ export class VideojuegosComponent implements OnInit {
     if (this.idVideojuego != 0) {
       this.videojuegoServicio.obtener(this.idVideojuego).subscribe({
         next: (data) => {
-        const videojuego = data[0]; // tomar el primer elemento del array
 
         this.formVideojuego.patchValue({
-        titulo: videojuego.titulo,
-        genero: videojuego.genero,
-        plataforma: videojuego.plataforma,
-        pegi: videojuego.pegi
+        titulo: data.titulo,
+        genero: data.genero,
+        plataforma: data.plataforma,
+        pegi: data.pegi
         });
         },
         error: (err) => {
