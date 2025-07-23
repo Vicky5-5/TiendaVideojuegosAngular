@@ -48,39 +48,40 @@ export class VideojuegosComponent implements OnInit {
     }
   }
 
-  guardar() {
-    const objeto: Videojuegos = {
-      idVideojuego: this.idVideojuego,
-      titulo: this.formVideojuego.value.titulo,
-      genero: this.formVideojuego.value.genero,
-      plataforma: this.formVideojuego.value.plataforma,
-      pegi: this.formVideojuego.value.pegi
-    };
+guardar() {
+  const objeto: Videojuegos = {
+    idVideojuego: this.idVideojuego,
+    titulo: this.formVideojuego.value.titulo,
+    genero: this.formVideojuego.value.genero,
+    plataforma: this.formVideojuego.value.plataforma,
+    pegi: this.formVideojuego.value.pegi
+  };
 
-    if (this.idVideojuego === 0) {
-      this.videojuegoServicio.crear(objeto).subscribe({
-        next: (data) => {
-          if (data.isSuccess) {
-            this.router.navigate(['/']);
-          } else {
-            alert('Error al crear');
-          }
-        },
-        error: (err) => console.log('Error al crear:', err.message)
-      });
-    } else {
-      this.videojuegoServicio.editar(objeto).subscribe({
-        next: (data) => {
-          if (data.isSuccess) {
-            this.router.navigate(['/']);
-          } else {
-            alert('Error al editar');
-          }
-        },
-        error: (err) => console.log('Error al editar:', err.message)
-      });
-    }
+  if (this.idVideojuego === 0) {
+    this.videojuegoServicio.crear(objeto).subscribe({
+      next: (data) => {
+        alert('✅ Videojuego creado correctamente');
+        this.router.navigate(['/']);
+      },
+      error: (err) => {
+        console.error('Error al crear:', err.message);
+        alert('❌ Error al crear el videojuego');
+      }
+    });
+  } else {
+    this.videojuegoServicio.editar(objeto).subscribe({
+      next: (data) => {
+        alert('✅ Videojuego editado correctamente');
+        this.router.navigate(['/']);
+      },
+      error: (err) => {
+        console.error('Error al editar:', err.message);
+        alert('❌ Error al editar el videojuego');
+      }
+    });
   }
+}
+
 
   volver() {
     this.router.navigate(['/']);

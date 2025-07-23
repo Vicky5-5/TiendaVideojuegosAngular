@@ -10,7 +10,6 @@ import { InicioComponent } from "./Pages/inicio/inicio.component";
   standalone: true,
   imports: [RouterModule],
   template: `
-     <h1>Test Hola Mundo</h1>
     <router-outlet></router-outlet>
   `
 })
