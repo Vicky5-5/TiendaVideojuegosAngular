@@ -4,12 +4,13 @@ import { ConfigService } from './services/config.service';
 import { VideojuegosComponent } from './Pages/videojuegos/videojuegos.component';
 import { RouterModule } from '@angular/router';
 import { InicioComponent } from "./Pages/inicio/inicio.component";
+import { NavbarComponent } from "./BarraNavegacion/navbar/navbar.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule],
-  template: `
+  imports: [RouterModule, NavbarComponent],
+  template: `<app-navbar></app-navbar>
     <router-outlet></router-outlet>
   `
 })

@@ -1,0 +1,16 @@
+.contacto-container {
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+mat-icon {
+  font-size: 24px;
+}

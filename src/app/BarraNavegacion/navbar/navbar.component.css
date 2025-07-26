@@ -1,0 +1,54 @@
+/* CONFIGURACIÓN DE ESTILOS PARA LA BARRA */
+nav {
+    background-color: blueviolet;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    height: 5vh;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* AGRUPACIÓN DE LOGO + TEXTO */
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre logo y texto */
+}
+
+/* IMAGEN DEL LOGO */
+.nav-brand img {
+    height: 30px;
+    width: auto;
+}
+
+/* TÍTULO */
+nav h1 {
+    color: white;
+    margin: 0;
+    font-size: 24px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 16px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+    background-color: violet;
+    color: black;
+}
+.nav-links a:active {
+  background-color: violet; /* Igual que el hover */
+  color: black;
+}
