@@ -5,13 +5,15 @@ import { VideojuegosComponent } from './Pages/videojuegos/videojuegos.component'
 import { RouterModule } from '@angular/router';
 import { InicioComponent } from "./Pages/inicio/inicio.component";
 import { NavbarComponent } from "./BarraNavegacion/navbar/navbar.component";
+import { FooterComponent } from "./Pages/footer/footer.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule, NavbarComponent],
+  imports: [RouterModule, NavbarComponent, FooterComponent],
   template: `<app-navbar></app-navbar>
     <router-outlet></router-outlet>
+    <app-footer></app-footer>
   `
 })
 export class AppComponent implements OnInit {
